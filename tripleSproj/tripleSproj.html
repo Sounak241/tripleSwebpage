@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tripleS Videos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #121212;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      .navbar {
+        background-color: #1f1f1f;
+      }
+      .navbar-brand {
+        color: #ff5ea5;
+        font-weight: bold;
+      }
+      .navbar-brand:hover {
+        color: #ff8fcf;
+      }
+      .carousel-wrapper {
+        border: 5px solid #ff5ea5;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+      }
+      .carousel-item img {
+        height: 500px;
+        object-fit: cover;
+        border: none;
+        border-radius: 0;
+      }
+      .main-title {
+        text-align: center;
+        margin: 40px 0 20px;
+        font-size: 3rem;
+        font-weight: bold;
+        color: #ff5ea5;
+      }
+      .card {
+        background-color: #1f1f1f;
+        border: 2px solid #ff5ea5;
+        border-radius: 10px;
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      .card-title {
+        color: #ff5ea5;
+      }
+      .card-body {
+        text-align: center;
+      }
+      .card-text {
+        color: #ccc;
+        margin-bottom: 0;
+      }
+      footer {
+        background-color: #1f1f1f;
+        color: #ff5ea5;
+        text-align: center;
+        padding: 15px 0;
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">tripleS Browser</a>
+      </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="container mt-4">
+      <div class="carousel-wrapper">
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="d-block w-100"
+                src="3702c1f01002b5409f97e1db8e98ee86.jpg"
+                alt="First slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="6d1d2df2a45f3e04c96ead9b02b54ac8.jpg"
+                alt="Second slide"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                class="d-block w-100"
+                src="a5b6cb13ab401bfef71289ec3d6f2ceb.jpg"
+                alt="Third slide"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Title -->
+    <div class="main-title">tripleS Videos</div>
+
+    <!-- Video Cards -->
+    <div class="container mb-5">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <a
+            href="https://www.youtube.com/watch?v=pTycfmVzdl8"
+            target="_blank"
+            class="text-decoration-none"
+          >
+            <div class="card h-100">
+              <img
+                src="https://img.youtube.com/vi/pTycfmVzdl8/maxresdefault.jpg"
+                class="card-img-top"
+                alt="Video 1"
+              />
+              <div class="card-body">
+                <h5 class="card-title">tripleS - Are you Alive</h5>
+                <p class="card-text">Latest comeback of the group!</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a
+            href="https://www.youtube.com/watch?v=2tda_TCjz8w"
+            target="_blank"
+            class="text-decoration-none"
+          >
+            <div class="card h-100">
+              <img
+                src="https://img.youtube.com/vi/2tda_TCjz8w/maxresdefault.jpg"
+                class="card-img-top"
+                alt="Video 2"
+              />
+              <div class="card-body">
+                <h5 class="card-title">tripleS - Girls Never Die</h5>
+                <p class="card-text">First OT24 debut of the group.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a
+            href="https://www.youtube.com/watch?v=0cZ7o0Wn_dc"
+            target="_blank"
+            class="text-decoration-none"
+          >
+            <div class="card h-100">
+              <img
+                src="https://img.youtube.com/vi/0cZ7o0Wn_dc/maxresdefault.jpg"
+                class="card-img-top"
+                alt="Video 3"
+              />
+              <div class="card-body">
+                <h5 class="card-title">tripleS - Generation</h5>
+                <p class="card-text">First unit of the group.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>&copy; 2025 tripleS & Modhaus</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
