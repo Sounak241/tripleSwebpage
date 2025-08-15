@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>tripleS Videos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmos Land</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -56,7 +56,6 @@
         color: #c23662;
       }
 
-      /* Carousel */
       .carousel-wrapper {
         border: 5px solid #ff5ea5;
         border-radius: 15px;
@@ -84,7 +83,6 @@
         width: 80%;
       }
 
-      /* Titles */
       .main-title {
         text-align: center;
         margin: 40px 0 20px;
@@ -96,7 +94,6 @@
         color: #c23662;
       }
 
-      /* Cards */
       .card {
         background-color: #1f1f1f;
         border: 2px solid #ff5ea5;
@@ -128,7 +125,34 @@
         color: #444;
       }
 
-      /* Fade-in effect */
+      .album-slide {
+        position: relative;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        overflow: hidden;
+      }
+
+      .discography-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .spotify-container {
+        max-width: 700px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
       .fade-in {
         opacity: 0;
         transform: translateY(20px);
@@ -150,9 +174,50 @@
         background-color: #e3e3e3;
         color: #c23662;
       }
+
+      .btn-outline-pink {
+        color: #ff5ea5;
+        border-color: #ff5ea5;
+      }
+      .btn-outline-pink:hover {
+        background-color: #ff5ea5;
+        color: #fff;
+      }
+      body.light .btn-outline-pink {
+        color: #c23662;
+        border-color: #c23662;
+      }
+      body.light .btn-outline-pink:hover {
+        background-color: #c23662;
+        color: #fff;
+      }
+
+      .album-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        gap: 10px;
+        position: relative;
+        z-index: 2;
+      }
+      .album-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ff5ea5;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+      body.light .album-dot {
+        background: #c23662;
+      }
+      .album-dot.active {
+        transform: scale(1.4);
+      }
     </style>
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">tripleS Browser</a>
@@ -185,6 +250,17 @@
                   <a class="dropdown-item" href="members/yooyeon.html"
                     >Yooyeon</a
                   >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="members/soomin.html">Soomin</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="members/hyunjin.html"
+                    >Hyunjin</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="members/taera.html">Taera</a>
                 </li>
               </ul>
             </li>
@@ -220,6 +296,7 @@
       </div>
     </nav>
 
+    <!-- Main Image Carousel -->
     <div class="carousel-wrapper">
       <div
         id="carouselExampleControls"
@@ -231,6 +308,7 @@
             <img
               src="images/bd49906a4bd2a39a723000ffd49f2f1d.jpeg"
               alt="ASSEMBLE24"
+              loading="lazy"
             />
             <div class="carousel-caption d-none d-md-block">
               <h5>ASSEMBLE24</h5>
@@ -241,6 +319,7 @@
             <img
               src="images/EVOLution_invincible_group_concept_shoot_twitter.webp"
               alt="EVOLution"
+              loading="lazy"
             />
             <div class="carousel-caption d-none d-md-block">
               <h5>EVOLution</h5>
@@ -251,6 +330,7 @@
             <img
               src="images/93b417b76eccb0ced5fa661f90ae7120.jpeg"
               alt="LOVElution"
+              loading="lazy"
             />
             <div class="carousel-caption d-none d-md-block">
               <h5>LOVElution</h5>
@@ -277,116 +357,161 @@
       </div>
     </div>
 
+    <!-- Videos Section -->
     <div class="main-title">tripleS Videos</div>
     <div class="container mb-5">
-      <div class="row g-4">
-        <div class="col-md-4 fade-in">
-          <a
-            href="https://www.youtube.com/watch?v=pTycfmVzdl8"
-            target="_blank"
-            class="text-decoration-none"
-          >
-            <div class="card h-100">
-              <img
-                src="https://img.youtube.com/vi/pTycfmVzdl8/maxresdefault.jpg"
-                class="card-img-top"
-                alt="Video 1"
-              />
-              <div class="card-body">
-                <h5 class="card-title">tripleS - Are You Alive</h5>
-                <p class="card-text">Latest comeback of the group!</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 fade-in">
-          <a
-            href="https://www.youtube.com/watch?v=2tda_TCjz8w"
-            target="_blank"
-            class="text-decoration-none"
-          >
-            <div class="card h-100">
-              <img
-                src="https://img.youtube.com/vi/2tda_TCjz8w/maxresdefault.jpg"
-                class="card-img-top"
-                alt="Video 2"
-              />
-              <div class="card-body">
-                <h5 class="card-title">tripleS - Girls Never Die</h5>
-                <p class="card-text">First OT24 debut of the group.</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 fade-in">
-          <a
-            href="https://www.youtube.com/watch?v=0cZ7o0Wn_dc"
-            target="_blank"
-            class="text-decoration-none"
-          >
-            <div class="card h-100">
-              <img
-                src="https://img.youtube.com/vi/0cZ7o0Wn_dc/maxresdefault.jpg"
-                class="card-img-top"
-                alt="Video 3"
-              />
-              <div class="card-body">
-                <h5 class="card-title">tripleS - Generation</h5>
-                <p class="card-text">First unit of the group.</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+      <div class="row g-4" id="video-cards"></div>
     </div>
 
+    <!-- Members Section -->
     <div class="main-title">Meet the Members</div>
     <div class="container mb-5">
-      <div class="row g-4">
-        <div class="col-md-4 fade-in">
-          <a href="members/kotone.html" class="text-decoration-none">
-            <div class="card h-100">
-              <img src="images/kotone.webp" alt="Kotone" />
-              <div class="card-body">
-                <h5 class="card-title">Kotone</h5>
-                <p class="card-text">S11 • Japan • Bright & Powerful</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 fade-in">
-          <a href="members/yubin.html" class="text-decoration-none">
-            <div class="card h-100">
-              <img src="images/yubin.webp" class="card-img-top" alt="Yubin" />
-              <div class="card-body">
-                <h5 class="card-title">Yubin</h5>
-                <p class="card-text">S8 • Korea • Warm & Charming</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 fade-in">
-          <a href="members/yooyeon.html" class="text-decoration-none">
-            <div class="card h-100">
-              <img
-                src="images/yooyeon.webp"
-                class="card-img-top"
-                alt="Yooyeon"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Yooyeon</h5>
-                <p class="card-text">S5 • Korea • Charismatic & Strong</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+      <div class="row g-4" id="member-cards"></div>
     </div>
+
+    <!-- Discography Section -->
+    <div class="main-title">Discography</div>
+    <section class="album-carousel-section position-relative my-5">
+      <div
+        id="albumCarousel"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+        data-bs-interval="10000"
+        data-bs-wrap="true"
+        data-bs-pause="false"
+      >
+        <div class="carousel-inner" id="album-carousel-inner"></div>
+      </div>
+      <div class="album-dots" id="album-dots"></div>
+    </section>
 
     <footer>&copy; 2025 tripleS & Modhaus</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      // Data
+      const videos = [
+        {
+          title: "tripleS - Are You Alive",
+          thumb: "https://img.youtube.com/vi/pTycfmVzdl8/maxresdefault.jpg",
+          link: "https://www.youtube.com/watch?v=pTycfmVzdl8",
+          desc: "Latest comeback of the group!",
+        },
+        {
+          title: "tripleS - Girls Never Die",
+          thumb: "https://img.youtube.com/vi/2tda_TCjz8w/maxresdefault.jpg",
+          link: "https://www.youtube.com/watch?v=2tda_TCjz8w",
+          desc: "First OT24 debut of the group.",
+        },
+        {
+          title: "tripleS - Generation",
+          thumb: "https://img.youtube.com/vi/0cZ7o0Wn_dc/maxresdefault.jpg",
+          link: "https://www.youtube.com/watch?v=0cZ7o0Wn_dc",
+          desc: "First unit of the group.",
+        },
+      ];
+      const members = [
+        {
+          name: "Kotone",
+          img: "images/kotone.webp",
+          link: "members/kotone.html",
+          desc: "S11 • Japan • Bright & Powerful",
+        },
+        {
+          name: "Yubin",
+          img: "images/yubin.webp",
+          link: "members/yubin.html",
+          desc: "S8 • Korea • Warm & Charming",
+        },
+        {
+          name: "Yooyeon",
+          img: "images/yooyeon.webp",
+          link: "members/yooyeon.html",
+          desc: "S5 • Korea • Charismatic & Strong",
+        },
+      ];
+      const albums = [
+        {
+          title: "ASSEMBLE24",
+          spotify:
+            "https://open.spotify.com/embed/album/1FEdDqMaOL8oZYzI4n27GM",
+          bg: "linear-gradient(135deg, #1db954, #191414)",
+          video: "videos/assemble24.mp4",
+        },
+        {
+          title: "LOVElution",
+          spotify:
+            "https://open.spotify.com/embed/album/2X2nKgBuusDa4VqLI6hMU2",
+          bg: "linear-gradient(135deg, #ff5e99, #ffb6c1)",
+          video: "videos/lovelution.mp4",
+        },
+        {
+          title: "EVOLution",
+          spotify:
+            "https://open.spotify.com/embed/album/0ZluUcxj1FrWoZX7BhW26K",
+          bg: "linear-gradient(135deg, #ffd700, #ff8c00)",
+          video: "videos/evolution.mp4",
+        },
+      ];
+
+      // Generate Video Cards
+      const videoContainer = document.getElementById("video-cards");
+      videos.forEach((v) => {
+        const col = document.createElement("div");
+        col.className = "col-md-4 fade-in";
+        col.innerHTML = `<a href="${v.link}" target="_blank" class="text-decoration-none"><div class="card h-100"><img src="${v.thumb}" class="card-img-top" alt="${v.title}" loading="lazy"/><div class="card-body"><h5 class="card-title">${v.title}</h5><p class="card-text">${v.desc}</p></div></div></a>`;
+        videoContainer.appendChild(col);
+      });
+
+      // Generate Member Cards
+      const memberContainer = document.getElementById("member-cards");
+      members.forEach((m) => {
+        const col = document.createElement("div");
+        col.className = "col-md-4 fade-in";
+        col.innerHTML = `<a href="${m.link}" class="text-decoration-none"><div class="card h-100"><img src="${m.img}" class="card-img-top" alt="${m.name}" loading="lazy"/><div class="card-body"><h5 class="card-title">${m.name}</h5><p class="card-text">${m.desc}</p></div></div></a>`;
+        memberContainer.appendChild(col);
+      });
+
+      // Generate Album Carousel
+      const albumInner = document.getElementById("album-carousel-inner");
+      const albumDots = document.getElementById("album-dots");
+      albums.forEach((a, i) => {
+        const div = document.createElement("div");
+        div.className = `carousel-item ${i === 0 ? "active" : ""}`;
+        div.innerHTML = `<div class="album-slide" style="background:${a.bg}">
+          <video class="discography-video" autoplay muted loop playsinline loading="lazy">
+            <source src="${a.video}" type="video/mp4">
+          </video>
+          <div class="spotify-container mx-auto">
+            <iframe style="border-radius:12px" src="${a.spotify}" width="100%" height="400" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+        </div>`;
+        albumInner.appendChild(div);
+
+        const dot = document.createElement("div");
+        dot.className = `album-dot ${i === 0 ? "active" : ""}`;
+        dot.addEventListener("click", () => {
+          bsAlbum.to(i);
+          updateDots(i);
+        });
+        albumDots.appendChild(dot);
+      });
+
+      function updateDots(activeIndex) {
+        albumDots
+          .querySelectorAll(".album-dot")
+          .forEach((d, i) => d.classList.toggle("active", i === activeIndex));
+      }
+
+      const bsAlbum = new bootstrap.Carousel(
+        document.getElementById("albumCarousel"),
+        { interval: 10000, ride: "carousel", pause: false }
+      );
+      document
+        .getElementById("albumCarousel")
+        .addEventListener("slide.bs.carousel", (e) => updateDots(e.to));
+
+      // Theme & Autoplay Toggle
       document.addEventListener("DOMContentLoaded", () => {
         const themeToggleBtn = document.getElementById("theme-toggle");
         const themeIcon = document.getElementById("theme-icon");
@@ -401,55 +526,28 @@
             document.body.classList.remove("light");
             themeIcon.innerHTML = `<path d="${moonPath}"/>`;
           }
+          localStorage.setItem("theme", theme);
         }
-        let savedTheme = localStorage.getItem("theme") || "dark";
-        applyTheme(savedTheme);
+        let theme = localStorage.getItem("theme") || "dark";
+        applyTheme(theme);
         themeToggleBtn.addEventListener("click", () => {
-          savedTheme = document.body.classList.contains("light")
-            ? "dark"
-            : "light";
-          applyTheme(savedTheme);
-          localStorage.setItem("theme", savedTheme);
+          applyTheme(
+            document.body.classList.contains("light") ? "dark" : "light"
+          );
         });
-
-        const autoplayToggleBtn = document.getElementById("autoplay-toggle");
-        const autoplayIcon = document.getElementById("autoplay-icon");
-        const pauseIcon = `<rect x="6" y="5" width="4" height="14" /><rect x="14" y="5" width="4" height="14" />`;
-        const playIcon = `<path d="M8 5v14l11-7z" />`;
-        const carouselEl = document.getElementById("carouselExampleControls");
-        const bsCarousel =
-          bootstrap.Carousel.getInstance(carouselEl) ||
-          new bootstrap.Carousel(carouselEl);
-        let isAutoplay = true;
-        autoplayToggleBtn.addEventListener("click", () => {
-          if (isAutoplay) {
-            bsCarousel.pause();
-            autoplayIcon.innerHTML = playIcon;
-          } else {
-            bsCarousel.cycle();
-            autoplayIcon.innerHTML = pauseIcon;
-          }
-          isAutoplay = !isAutoplay;
-        });
-
-        // Fade-in with stagger effect
-        const fadeElements = document.querySelectorAll(".fade-in");
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const index = Array.from(fadeElements).indexOf(entry.target);
-                setTimeout(() => {
-                  entry.target.classList.add("show");
-                }, index * 150); // stagger 150ms per card
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.1 }
-        );
-        fadeElements.forEach((el) => observer.observe(el));
       });
+
+      // Fade-in effect
+      const faders = document.querySelectorAll(".fade-in");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+          });
+        },
+        { threshold: 0.2 }
+      );
+      faders.forEach((f) => observer.observe(f));
     </script>
   </body>
 </html>
