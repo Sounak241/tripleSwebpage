@@ -55,7 +55,6 @@
       body.light .control-btn {
         color: #c23662;
       }
-
       .carousel-wrapper {
         border: 5px solid #ff5ea5;
         border-radius: 15px;
@@ -82,7 +81,6 @@
         transform: translateX(-50%);
         width: 80%;
       }
-
       .main-title {
         text-align: center;
         margin: 40px 0 20px;
@@ -93,7 +91,6 @@
       body.light .main-title {
         color: #c23662;
       }
-
       .card {
         background-color: #1f1f1f;
         border: 2px solid #ff5ea5;
@@ -124,7 +121,6 @@
       body.light .card-text {
         color: #444;
       }
-
       .album-slide {
         position: relative;
         min-height: 60vh;
@@ -134,7 +130,6 @@
         padding: 20px;
         overflow: hidden;
       }
-
       .discography-video {
         position: absolute;
         top: 0;
@@ -145,14 +140,19 @@
         z-index: 0;
         pointer-events: none;
       }
-
       .spotify-container {
         max-width: 700px;
         width: 100%;
         position: relative;
         z-index: 1;
       }
-
+      .spotify-container iframe {
+        opacity: 0;
+        transition: opacity 0.8s ease;
+      }
+      .spotify-container iframe.show {
+        opacity: 1;
+      }
       .fade-in {
         opacity: 0;
         transform: translateY(20px);
@@ -162,7 +162,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-
       footer {
         background-color: #1f1f1f;
         color: #ff5ea5;
@@ -174,7 +173,6 @@
         background-color: #e3e3e3;
         color: #c23662;
       }
-
       .btn-outline-pink {
         color: #ff5ea5;
         border-color: #ff5ea5;
@@ -191,7 +189,6 @@
         background-color: #c23662;
         color: #fff;
       }
-
       .album-dots {
         display: flex;
         justify-content: center;
@@ -217,7 +214,6 @@
     </style>
   </head>
   <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">tripleS Browser</a>
@@ -251,17 +247,6 @@
                     >Yooyeon</a
                   >
                 </li>
-                <li>
-                  <a class="dropdown-item" href="members/soomin.html">Soomin</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="members/hyunjin.html"
-                    >Hyunjin</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="members/taera.html">Taera</a>
-                </li>
               </ul>
             </li>
           </ul>
@@ -280,23 +265,10 @@
               />
             </svg>
           </button>
-          <button id="autoplay-toggle" class="control-btn" type="button">
-            <svg
-              id="autoplay-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-            >
-              <rect x="6" y="5" width="4" height="14" />
-              <rect x="14" y="5" width="4" height="14" />
-            </svg>
-          </button>
         </div>
       </div>
     </nav>
 
-    <!-- Main Image Carousel -->
     <div class="carousel-wrapper">
       <div
         id="carouselExampleControls"
@@ -357,19 +329,16 @@
       </div>
     </div>
 
-    <!-- Videos Section -->
     <div class="main-title">tripleS Videos</div>
     <div class="container mb-5">
       <div class="row g-4" id="video-cards"></div>
     </div>
 
-    <!-- Members Section -->
     <div class="main-title">Meet the Members</div>
     <div class="container mb-5">
       <div class="row g-4" id="member-cards"></div>
     </div>
 
-    <!-- Discography Section -->
     <div class="main-title">Discography</div>
     <section class="album-carousel-section position-relative my-5">
       <div
@@ -389,7 +358,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Data
       const videos = [
         {
           title: "tripleS - Are You Alive",
@@ -454,38 +422,28 @@
         },
       ];
 
-      // Generate Video Cards
       const videoContainer = document.getElementById("video-cards");
       videos.forEach((v) => {
-        const col = document.createElement("div");
-        col.className = "col-md-4 fade-in";
-        col.innerHTML = `<a href="${v.link}" target="_blank" class="text-decoration-none"><div class="card h-100"><img src="${v.thumb}" class="card-img-top" alt="${v.title}" loading="lazy"/><div class="card-body"><h5 class="card-title">${v.title}</h5><p class="card-text">${v.desc}</p></div></div></a>`;
-        videoContainer.appendChild(col);
+        const c = document.createElement("div");
+        c.className = "col-md-4 fade-in";
+        c.innerHTML = `<a href="${v.link}" target="_blank" class="text-decoration-none"><div class="card h-100"><img src="${v.thumb}" class="card-img-top" alt="${v.title}" loading="lazy"/><div class="card-body"><h5 class="card-title">${v.title}</h5><p class="card-text">${v.desc}</p></div></div></a>`;
+        videoContainer.appendChild(c);
       });
 
-      // Generate Member Cards
       const memberContainer = document.getElementById("member-cards");
       members.forEach((m) => {
-        const col = document.createElement("div");
-        col.className = "col-md-4 fade-in";
-        col.innerHTML = `<a href="${m.link}" class="text-decoration-none"><div class="card h-100"><img src="${m.img}" class="card-img-top" alt="${m.name}" loading="lazy"/><div class="card-body"><h5 class="card-title">${m.name}</h5><p class="card-text">${m.desc}</p></div></div></a>`;
-        memberContainer.appendChild(col);
+        const c = document.createElement("div");
+        c.className = "col-md-4 fade-in";
+        c.innerHTML = `<a href="${m.link}" class="text-decoration-none"><div class="card h-100"><img src="${m.img}" class="card-img-top" alt="${m.name}" loading="lazy"/><div class="card-body"><h5 class="card-title">${m.name}</h5><p class="card-text">${m.desc}</p></div></div></a>`;
+        memberContainer.appendChild(c);
       });
 
-      // Generate Album Carousel
       const albumInner = document.getElementById("album-carousel-inner");
       const albumDots = document.getElementById("album-dots");
       albums.forEach((a, i) => {
         const div = document.createElement("div");
         div.className = `carousel-item ${i === 0 ? "active" : ""}`;
-        div.innerHTML = `<div class="album-slide" style="background:${a.bg}">
-          <video class="discography-video" autoplay muted loop playsinline loading="lazy">
-            <source src="${a.video}" type="video/mp4">
-          </video>
-          <div class="spotify-container mx-auto">
-            <iframe style="border-radius:12px" src="${a.spotify}" width="100%" height="400" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          </div>
-        </div>`;
+        div.innerHTML = `<div class="album-slide" style="background:${a.bg}"><video class="discography-video" autoplay muted loop playsinline loading="lazy"><source src="${a.video}" type="video/mp4"></video><div class="spotify-container" data-src="${a.spotify}"></div></div>`;
         albumInner.appendChild(div);
 
         const dot = document.createElement("div");
@@ -497,57 +455,58 @@
         albumDots.appendChild(dot);
       });
 
-      function updateDots(activeIndex) {
-        albumDots
-          .querySelectorAll(".album-dot")
-          .forEach((d, i) => d.classList.toggle("active", i === activeIndex));
-      }
-
       const bsAlbum = new bootstrap.Carousel(
         document.getElementById("albumCarousel"),
         { interval: 10000, ride: "carousel", pause: false }
       );
+
+      function loadSpotifySlide(slide) {
+        const container = slide.querySelector(".spotify-container");
+        if (container && !container.querySelector("iframe")) {
+          const src = container.dataset.src;
+          const iframe = document.createElement("iframe");
+          iframe.style.borderRadius = "12px";
+          iframe.width = "100%";
+          iframe.height = "400";
+          iframe.frameBorder = "0";
+          iframe.allow =
+            "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+          iframe.loading = "lazy";
+          iframe.src = src;
+          iframe.onload = () => iframe.classList.add("show");
+          container.appendChild(iframe);
+        }
+      }
+
+      function updateDots(activeIndex) {
+        albumDots
+          .querySelectorAll(".album-dot")
+          .forEach((d, i) => d.classList.toggle("active", i === activeIndex));
+        const slides = albumInner.querySelectorAll(".carousel-item");
+        loadSpotifySlide(slides[activeIndex]);
+      }
+
+      loadSpotifySlide(albumInner.querySelector(".carousel-item.active"));
+
       document
         .getElementById("albumCarousel")
         .addEventListener("slide.bs.carousel", (e) => updateDots(e.to));
 
-      // Theme & Autoplay Toggle
-      document.addEventListener("DOMContentLoaded", () => {
-        const themeToggleBtn = document.getElementById("theme-toggle");
-        const themeIcon = document.getElementById("theme-icon");
-        const moonPath =
-          "M21.75 15.082a9.75 9.75 0 01-10.832-10.83 7.5 7.5 0 1010.832 10.83z";
-        const sunPath = "M12 18a6 6 0 100-12 6 6 0 000 12z";
-        function applyTheme(theme) {
-          if (theme === "light") {
-            document.body.classList.add("light");
-            themeIcon.innerHTML = `<path d="${sunPath}"/>`;
-          } else {
-            document.body.classList.remove("light");
-            themeIcon.innerHTML = `<path d="${moonPath}"/>`;
-          }
-          localStorage.setItem("theme", theme);
-        }
-        let theme = localStorage.getItem("theme") || "dark";
-        applyTheme(theme);
-        themeToggleBtn.addEventListener("click", () => {
-          applyTheme(
-            document.body.classList.contains("light") ? "dark" : "light"
-          );
-        });
-      });
-
-      // Fade-in effect
-      const faders = document.querySelectorAll(".fade-in");
+      const fadeEls = document.querySelectorAll(".fade-in");
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) entry.target.classList.add("show");
           });
         },
-        { threshold: 0.2 }
+        { threshold: 0.1 }
       );
-      faders.forEach((f) => observer.observe(f));
+      fadeEls.forEach((el) => observer.observe(el));
+
+      const themeBtn = document.getElementById("theme-toggle");
+      themeBtn.addEventListener("click", () =>
+        document.body.classList.toggle("light")
+      );
     </script>
   </body>
 </html>
